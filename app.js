@@ -11,7 +11,13 @@ function computerPlay () {
 
 function playerPlay () {
     let playerChoice = prompt("Choose rock, paper, or scissors");
-    return errorPlayerChoice(capitalizeFirstLetter(playerChoice));
+    if (errorPlayerChoice(capitalizeFirstLetter(playerChoice)) == true) {
+        return capitalizeFirstLetter(playerChoice);
+    }
+    else {
+        playerPlay();
+    }
+    
 }
 
 function capitalizeFirstLetter(string) {
@@ -20,11 +26,12 @@ function capitalizeFirstLetter(string) {
 
 function errorPlayerChoice(string) {
     if (string == choices[0] || string == choices[1] || string == choices[2]) {
-        return string;
+        return true;
     }
     else {
-        let errorMessage = "ERROR: That is not a choice. Please select rock, paper, or scissors."
-        return errorMessage;
+        let errorMessage = "ERROR: That is not a choice. Please select rock, paper, or scissors.";
+        console.log(errorMessage);
+        return false;
     }
 }
 
@@ -70,10 +77,12 @@ function game () {
         gameResult = playRound(playerSelection, computerSelection);
         if (gameRound(gameResult) == true) {
             console.log(gameResult);
+           //console.log(computerSelection);
             i++;
         }
         else if (gameRound(gameResult) == false) {
-            console.log('No one won.');
+            console.log(gameResult);
+            //console.log(computerSelection);
         }
      } 
 }
@@ -83,7 +92,7 @@ function gameRound (message) {
     if (message.includes('win') || message.includes('lose')) {
         return true;
     }
-    else if (message.includes('ERROR') || message.includes('Tie')) {
+    else if (message.includes('Tie')) {
         return false;
     }
 }
