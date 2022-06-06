@@ -21,6 +21,7 @@ function playerPlay () {
 }
 
 function capitalizeFirstLetter(string) {
+    string = string.trim();
     return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
   }
 
@@ -30,7 +31,7 @@ function errorPlayerChoice(string) {
     }
     else {
         let errorMessage = "ERROR: That is not a choice. Please select rock, paper, or scissors.";
-        console.log(errorMessage);
+        alert(errorMessage);
         return false;
     }
 }
