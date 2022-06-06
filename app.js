@@ -61,7 +61,31 @@ function playRound (player, computer) {
     return(winMessage);
 }
 
+function game () {
+    let gameResult;
+    
+    for (let i = 0; i < 5;) {
+        playerSelection = playerPlay();
+        computerSelection = computerPlay();
+        gameResult = playRound(playerSelection, computerSelection);
+        if (gameRound(gameResult) == true) {
+            console.log(gameResult);
+            i++;
+        }
+        else if (gameRound(gameResult) == false) {
+            console.log('No one won.');
+        }
+     } 
+}
 
-playerSelection = playerPlay();
-computerSelection = computerPlay();
-console.log(playRound(playerSelection, computerSelection));
+
+function gameRound (message) {
+    if (message.includes('win') || message.includes('lose')) {
+        return true;
+    }
+    else if (message.includes('ERROR') || message.includes('Tie')) {
+        return false;
+    }
+}
+
+game();
