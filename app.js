@@ -28,7 +28,7 @@ function errorPlayerChoice(string) {
     }
 }
 
-function play (player, computer) {
+function playRound (player, computer) {
     let winMessage;
 
     if (player == choices[0]) { //Player picks rock
@@ -64,4 +64,4 @@ function play (player, computer) {
 
 playerSelection = playerPlay();
 computerSelection = computerPlay();
-console.log(play(playerSelection, computerSelection));
+console.log(playRound(playerSelection, computerSelection));
