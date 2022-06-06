@@ -8,7 +8,7 @@ function computerPlay () {
 }
 
 function playerSelection () {
-    var playerChoice = prompt("Choose rock, paper, or scissors");
+    let playerChoice = prompt("Choose rock, paper, or scissors");
     return errorPlayerChoice(capitalizeFirstLetter(playerChoice));
 }
 
@@ -21,9 +21,13 @@ function errorPlayerChoice(string) {
         return string;
     }
     else {
-        var errorMessage = "ERROR: That is not a choice. Please select rock, paper, or scissors."
+        let errorMessage = "ERROR: That is not a choice. Please select rock, paper, or scissors."
         return errorMessage
     }
+}
+
+function play (playerSelection, computerPlay) {
+    z
 }
 
 console.log(computerPlay());
