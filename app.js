@@ -1,13 +1,15 @@
 console.log('Hello World');
 
 const choices = ['Rock', 'Paper', 'Scissors'];
+let computerSelection;
+let playerSelection;
 
 function computerPlay () {
     const random = Math.floor(Math.random() * choices.length);
     return(choices[random]);
 }
 
-function playerSelection () {
+function playerPlay () {
     let playerChoice = prompt("Choose rock, paper, or scissors");
     return errorPlayerChoice(capitalizeFirstLetter(playerChoice));
 }
@@ -22,13 +24,44 @@ function errorPlayerChoice(string) {
     }
     else {
         let errorMessage = "ERROR: That is not a choice. Please select rock, paper, or scissors."
-        return errorMessage
+        return errorMessage;
     }
 }
 
-function play (playerSelection, computerPlay) {
-    z
+function play (player, computer) {
+    let winMessage;
+
+    if (player == choices[0]) { //Player picks rock
+        if (computer == choices[1]) {
+            winMessage = 'You lose! Paper beats rock.';
+        }
+        else {
+            winMessage = 'You win!!! Rock beats scissors';
+        }
+    }
+    else if (player == choices[1]) { //Player picks paper
+        if (computer == choices[0]) {
+            winMessage = 'You win!!! Paper beats rock.';
+        }
+        else {
+            winMessage = 'You lose! Scissors beats paper.';
+        }
+    }
+    else if (player == choices[2]) { //Player picks scissors
+        if (computer == choices[0]) {
+            winMessage = 'You lose! Rock beats scissors.';
+        }
+        else {
+            winMessage = 'You win!!! Scissors beats paper.';
+        }
+    }
+    else {
+        winMessage = 'Tie';
+    }
+    return(winMessage);
 }
 
-console.log(computerPlay());
-console.log(playerSelection());
+
+playerSelection = playerPlay();
+computerSelection = computerPlay();
+console.log(play(playerSelection, computerSelection));
