@@ -24,6 +24,7 @@ function playerPlay (e) {
     button.forEach(button => {button.removeEventListener('click', playerPlay);
         });
     console.log(e);
+    console.log(this.classList[1]);
     //e.stopPropagation(); // stop bubbling!
     //console.log(this);   
 }
