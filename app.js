@@ -3,21 +3,28 @@ console.log('Hello World');
 const choices = ['Rock', 'Paper', 'Scissors'];
 let computerSelection;
 let playerSelection;
+let key;
+
+const button = document.querySelectorAll("button.choice");
+
+button.forEach(button => button.addEventListener('click', playerPlay, {
+    capture: false,
+    once: true
+  }));
+
 
 function computerPlay () {
     const random = Math.floor(Math.random() * choices.length);
     return(choices[random]);
 }
 
-function playerPlay () {
-    //let playerChoice = prompt("Choose rock, paper, or scissors");
-    if (errorPlayerChoice(capitalizeFirstLetter(playerChoice)) == true) {
-        return capitalizeFirstLetter(playerChoice);
-    }
-    else {
-        playerPlay();
-    }
-    
+function playerPlay (e) {
+    key = this.classList.value;
+    console.log(this.classList.value);
+    button.forEach(button => {button.removeEventListener('click', playerPlay);
+        });
+    //e.stopPropagation(); // stop bubbling!
+    //console.log(this);   
 }
 
 function capitalizeFirstLetter(string) {
@@ -98,4 +105,4 @@ function gameRound (message) {
     }
 }
 
-game();
+//game();
