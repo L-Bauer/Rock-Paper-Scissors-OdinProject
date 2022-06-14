@@ -1,0 +1,16 @@
+body {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+button {
+    width: 150px;
+    height: 75px;
+}
+
+.choices {
+    padding: 20px;
+    width: 600px;
+    display: flex;
+    justify-content: space-between;
+}

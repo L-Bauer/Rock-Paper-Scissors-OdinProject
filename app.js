@@ -10,7 +10,7 @@ function computerPlay () {
 }
 
 function playerPlay () {
-    let playerChoice = prompt("Choose rock, paper, or scissors");
+    //let playerChoice = prompt("Choose rock, paper, or scissors");
     if (errorPlayerChoice(capitalizeFirstLetter(playerChoice)) == true) {
         return capitalizeFirstLetter(playerChoice);
     }
